@@ -6,6 +6,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - run: echo "my secret: $SECRET"
-
-
+      - run: |
+          echo "my super secret: ${{ secrets.SECRET }}"
+          echo "my super secret: ${{ secrets.SECRET }}" > output.txt
+          ls -l output.txt
+          cat output.txt
